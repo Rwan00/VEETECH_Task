@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -53,23 +54,13 @@ class _InstallmentDetailsScreenState extends State<InstallmentDetailsScreen> {
     if (monthlyRate == 0) return principal / n;
 
     return principal *
-        (monthlyRate * pow(1 + monthlyRate, n)) /
-        (pow(1 + monthlyRate, n) - 1);
+        (monthlyRate * math.pow(1 + monthlyRate, n)) /
+        (math.pow(1 + monthlyRate, n) - 1);
   }
 
   double get totalAmount => downPayment + (monthlyPayment * _selectedMonths);
 
   double get totalInterest => totalAmount - widget.car.price;
-
-  double pow(double base, double exponent) {
-    return double.parse(
-      (base.toStringAsFixed(10))
-          .split('')
-          .fold<double>(1.0, (prev, _) => prev * base)
-          .toString()
-          .substring(0, exponent.toInt()),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {

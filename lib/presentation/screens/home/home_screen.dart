@@ -33,26 +33,32 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: [
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
             // Header
-            FadeInDown(child: _buildHeader(context)),
+            SliverToBoxAdapter(child: FadeInDown(child: _buildHeader(context))),
 
             // Wallet Balance Card
-            FadeIn(
-              delay: const Duration(milliseconds: 200),
-              child: _buildWalletCard(),
+            SliverToBoxAdapter(
+              child: FadeIn(
+                delay: const Duration(milliseconds: 200),
+                child: _buildWalletCard(),
+              ),
             ),
 
             // Filter Chips
-            FadeInLeft(
-              delay: const Duration(milliseconds: 400),
-              child: _buildFilterChips(),
+            SliverToBoxAdapter(
+              child: FadeInLeft(
+                delay: const Duration(milliseconds: 400),
+                child: _buildFilterChips(),
+              ),
             ),
 
             // Car List
-            Expanded(child: _buildCarList()),
+            _buildSliverCarList(),
           ],
         ),
       ),
@@ -321,45 +327,52 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildCarList() {
+  Widget _buildSliverCarList() {
     final cars = _filteredCars;
 
     if (cars.isEmpty) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.directions_car_outlined,
-              size: 64,
-              color: Colors.grey.shade300,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'No cars found',
-              style: TextStyle(color: Colors.grey.shade500, fontSize: 16),
-            ),
-          ],
+      return SliverFillRemaining(
+        hasScrollBody: false,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.directions_car_outlined,
+                size: 64,
+                color: Colors.grey.shade300,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'No cars found',
+                style: TextStyle(color: Colors.grey.shade500, fontSize: 16),
+              ),
+            ],
+          ),
         ),
       );
     }
 
-    return ListView.builder(
-      padding: const EdgeInsets.all(20),
-      itemCount: cars.length,
-      itemBuilder: (context, index) {
-        final car = cars[index];
-        return CarCard(
-          car: car,
-          index: index,
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => CarDetailsScreen(car: car)),
-            );
-          },
-        );
-      },
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      sliver: SliverList(
+        delegate: SliverChildBuilderDelegate((context, index) {
+          final car = cars[index];
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 16),
+            child: CarCard(
+              car: car,
+              index: index,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => CarDetailsScreen(car: car)),
+                );
+              },
+            ),
+          );
+        }, childCount: cars.length),
+      ),
     );
   }
 }
