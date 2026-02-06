@@ -7,7 +7,6 @@ import 'package:task_veetech/cubits/car_purchase_cubit.dart';
 import 'package:task_veetech/cubits/wallet_cubit.dart';
 import 'package:task_veetech/presentation/screens/auth/splash_screen.dart';
 
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -29,7 +28,7 @@ class CarMarketplaceApp extends StatelessWidget {
         BlocProvider(create: (context) => CarPurchaseCubit()),
       ],
       child: MaterialApp(
-        title: 'Car Marketplace',
+        title: 'VeeTech',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
@@ -79,7 +78,10 @@ class CarMarketplaceApp extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(color: Color(0xFF2C3E50), width: 2),
             ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 16,
+            ),
           ),
           cardTheme: CardThemeData(
             elevation: 0,
