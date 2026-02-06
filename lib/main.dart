@@ -39,7 +39,7 @@ class CarMarketplaceApp extends StatelessWidget {
             surface: Colors.white,
             background: const Color(0xFFF8F9FA),
           ),
-          textTheme: GoogleFonts.interTextTheme(),
+          textTheme: GoogleFonts.cairoTextTheme(),
           scaffoldBackgroundColor: const Color(0xFFF8F9FA),
           appBarTheme: const AppBarTheme(
             elevation: 0,

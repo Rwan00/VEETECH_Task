@@ -6,6 +6,7 @@ import 'package:task_veetech/presentation/screens/auth/register_screen.dart';
 import 'package:task_veetech/presentation/screens/home/home_screen.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:task_veetech/core/theme/colors.dart';
+import 'package:task_veetech/presentation/widgets/common/app_custom_image%20_view.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -65,29 +66,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     FadeInDown(
                       duration: const Duration(milliseconds: 800),
                       child: Center(
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [AppColors.primary, Color(0xFF1A252F)],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                            ),
-                            borderRadius: BorderRadius.circular(25),
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColors.primary.withOpacity(0.3),
-                                blurRadius: 20,
-                                offset: const Offset(0, 10),
-                              ),
-                            ],
-                          ),
-                          child: const Icon(
-                            Icons.directions_car_filled_rounded,
-                            size: 60,
-                            color: Colors.white,
-                          ),
+                        child: AppCustomImageView(
+                          width: 120,
+                          height: 120,
+
+                          radius: BorderRadius.circular(35),
+                          imagePath: "assets/images/logo.png",
                         ),
                       ),
                     ),

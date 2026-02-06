@@ -5,6 +5,7 @@ import 'package:task_veetech/presentation/screens/auth/login_screen.dart';
 import 'package:task_veetech/presentation/screens/home/home_screen.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:task_veetech/core/theme/colors.dart';
+import 'package:task_veetech/presentation/widgets/common/app_custom_image%20_view.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -53,25 +54,12 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             ZoomIn(
               duration: const Duration(milliseconds: 1000),
-              child: Container(
+              child: AppCustomImageView(
                 width: 120,
                 height: 120,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(35),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      blurRadius: 30,
-                      spreadRadius: 5,
-                    ),
-                  ],
-                ),
-                child: const Icon(
-                  Icons.directions_car_filled_rounded,
-                  size: 70,
-                  color: AppColors.primary,
-                ),
+
+                radius: BorderRadius.circular(35),
+                imagePath: "assets/images/logo.png",
               ),
             ),
             const SizedBox(height: 32),

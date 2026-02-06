@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:task_veetech/cubits/auth_cubit.dart';
 import 'package:task_veetech/cubits/wallet_cubit.dart';
@@ -82,6 +83,8 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Container(
             padding: const EdgeInsets.all(10),
+            width: 50,
+            height: 50,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
                 colors: [AppColors.primary, AppColors.primaryLight],
@@ -97,10 +100,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            child: const Icon(
-              Icons.directions_car_filled_rounded,
-              color: Colors.white,
-              size: 24,
+            child: Center(
+              child: Text(
+                "V",
+                style: GoogleFonts.carattere(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
           const SizedBox(width: 16),
