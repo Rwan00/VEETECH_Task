@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Center(
               child: Text(
                 "V",
-                style: GoogleFonts.carattere(
+                style: GoogleFonts.carroisGothic(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
