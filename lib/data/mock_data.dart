@@ -1,7 +1,6 @@
 import 'package:task_veetech/data/models/bank_model.dart';
 import 'package:task_veetech/data/models/car_model.dart';
 
-
 class MockData {
   static List<Car> getCars() {
     return [
@@ -12,7 +11,8 @@ class MockData {
         model: '530i',
         year: 2024,
         price: 850000,
-        imageUrl: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800',
+        imageUrl:
+            'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800',
         type: 'new',
         mileage: 0,
         transmission: 'Automatic',
@@ -34,7 +34,8 @@ class MockData {
         model: 'C300',
         year: 2023,
         price: 780000,
-        imageUrl: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800',
+        imageUrl:
+            'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800',
         type: 'new',
         mileage: 0,
         transmission: 'Automatic',
@@ -55,8 +56,9 @@ class MockData {
         brand: 'Audi',
         model: 'A4 Premium',
         year: 2022,
-        price: 520000,
-        imageUrl: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800',
+        price: 120000,
+        imageUrl:
+            'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800',
         type: 'used',
         mileage: 25000,
         transmission: 'Automatic',
@@ -76,8 +78,9 @@ class MockData {
         brand: 'Toyota',
         model: 'Camry SE',
         year: 2024,
-        price: 380000,
-        imageUrl: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800',
+        price: 90000,
+        imageUrl:
+            'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800',
         type: 'new',
         mileage: 0,
         transmission: 'Automatic',
@@ -97,8 +100,9 @@ class MockData {
         brand: 'Honda',
         model: 'Accord Sport',
         year: 2023,
-        price: 420000,
-        imageUrl: 'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800',
+        price: 18000,
+        imageUrl:
+            'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800',
         type: 'new',
         mileage: 0,
         transmission: 'Automatic',
@@ -118,8 +122,9 @@ class MockData {
         brand: 'Tesla',
         model: 'Model 3 Long Range',
         year: 2023,
-        price: 680000,
-        imageUrl: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800',
+        price: 24000,
+        imageUrl:
+            'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800',
         type: 'used',
         mileage: 15000,
         transmission: 'Automatic',
@@ -140,7 +145,8 @@ class MockData {
         model: 'Cayenne S',
         year: 2024,
         price: 1450000,
-        imageUrl: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
+        imageUrl:
+            'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
         type: 'new',
         mileage: 0,
         transmission: 'Automatic',
@@ -162,7 +168,8 @@ class MockData {
         model: 'Sport HSE',
         year: 2023,
         price: 1280000,
-        imageUrl: 'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=800',
+        imageUrl:
+            'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=800',
         type: 'new',
         mileage: 0,
         transmission: 'Automatic',
