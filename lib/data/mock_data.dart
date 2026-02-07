@@ -4,25 +4,26 @@ import 'package:task_veetech/data/models/car_model.dart';
 class MockData {
   static Map<String, String> getBrandLogos() {
     return {
-      'BMW': 'https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg.png',
+      'BMW':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/500px-BMW.svg.png',
       'Mercedes-Benz':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/1024px-Mercedes-Logo.svg.png',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/500px-Mercedes-Logo.svg.png',
       'Audi':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/1200px-Audi-Logo_2016.svg.png',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/500px-Audi-Logo_2016.svg.png',
       'Toyota':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Toyota_logo_and_wordmark.svg/1200px-Toyota_logo_and_wordmark.svg.png',
+          'https://upload.wikimedia.org/wikipedia/commons/4/43/Toyota_logo_3D.webp',
       'Porsche':
-          'https://upload.wikimedia.org/wikipedia/de/thumb/b/b3/Porsche_Wappen.svg/1200px-Porsche_Wappen.svg.png',
+          'https://upload.wikimedia.org/wikipedia/commons/4/44/Porsche_hood_emblem.png',
       'Tesla':
           'https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png',
       'Honda':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/1200px-Honda_Logo.svg.png',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/500px-Honda_Logo.svg.png',
       'Land Rover':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Land_Rover_logo.svg/1200px-Land_Rover_logo.svg.png',
+          'https://upload.wikimedia.org/wikipedia/commons/c/c2/Land_Rover_2023.svg',
       'Fiat':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Fiat_logo.svg/1200px-Fiat_logo.svg.png',
+          'https://upload.wikimedia.org/wikipedia/commons/3/34/FIAT_badge_on_a_car.jpg',
       'Maruti':
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Maruti_Suzuki_logo.svg/1200px-Maruti_Suzuki_logo.svg.png',
+          'https://upload.wikimedia.org/wikipedia/commons/8/86/Maruti_Suzuki_logo.svg',
     };
   }
 
