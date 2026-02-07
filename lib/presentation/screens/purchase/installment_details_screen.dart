@@ -46,8 +46,19 @@ class _InstallmentDetailsScreenState extends State<InstallmentDetailsScreen> {
 
   double get loanAmount => widget.car.price - downPayment;
 
+  double get adminFee =>
+      widget.car.price * widget.bank.adminFeePercentage / 100;
+
   double get monthlyPayment {
     final principal = loanAmount;
+
+    // Check if car has 0% interest offer or if bank provides it
+    bool isZeroInterest =
+        widget.car.specialFinancingOffer?.contains('0% Interest') ?? false;
+    isZeroInterest |= widget.bank.installmentsBenefit.contains('0% interest');
+
+    if (isZeroInterest) return principal / _selectedMonths;
+
     final monthlyRate = widget.bank.interestRate / 100 / 12;
     final n = _selectedMonths.toDouble();
 
@@ -58,9 +69,10 @@ class _InstallmentDetailsScreenState extends State<InstallmentDetailsScreen> {
         (math.pow(1 + monthlyRate, n) - 1);
   }
 
-  double get totalAmount => downPayment + (monthlyPayment * _selectedMonths);
+  double get totalAmount =>
+      downPayment + adminFee + (monthlyPayment * _selectedMonths);
 
-  double get totalInterest => totalAmount - widget.car.price;
+  double get totalInterest => totalAmount - widget.car.price - adminFee;
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +120,13 @@ class _InstallmentDetailsScreenState extends State<InstallmentDetailsScreen> {
 
                 // Period Selection
                 _buildPeriodSelection(),
+                const SizedBox(height: 24),
+
+                // Bank Benefit Card
+                FadeInUp(
+                  delay: const Duration(milliseconds: 300),
+                  child: _buildBankBenefitCard(),
+                ),
                 const SizedBox(height: 32),
 
                 // Payment Summary
@@ -363,8 +382,16 @@ class _InstallmentDetailsScreenState extends State<InstallmentDetailsScreen> {
           const SizedBox(height: 20),
           _buildSummaryRow('Down Payment', formatter.format(downPayment)),
           _buildSummaryRow('Loan Amount', formatter.format(loanAmount)),
+          _buildSummaryRow('Admin Fee', formatter.format(adminFee)),
           _buildSummaryRow('Monthly Payment', formatter.format(monthlyPayment)),
           _buildSummaryRow('Total Interest', formatter.format(totalInterest)),
+          _buildSummaryRow(
+            'Insurance',
+            widget.bank.insuranceIncluded ? 'INCLUDED' : 'NOT INCLUDED',
+            valueColor: widget.bank.insuranceIncluded
+                ? Colors.greenAccent
+                : Colors.orangeAccent,
+          ),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 12),
             child: Divider(color: Colors.white12),
@@ -410,7 +437,12 @@ class _InstallmentDetailsScreenState extends State<InstallmentDetailsScreen> {
     );
   }
 
-  Widget _buildSummaryRow(String label, String value, {bool isTotal = false}) {
+  Widget _buildSummaryRow(
+    String label,
+    String value, {
+    bool isTotal = false,
+    Color? valueColor,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
@@ -427,9 +459,52 @@ class _InstallmentDetailsScreenState extends State<InstallmentDetailsScreen> {
           Text(
             value,
             style: TextStyle(
-              color: Colors.white,
+              color: valueColor ?? Colors.white,
               fontSize: isTotal ? 20 : 16,
               fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBankBenefitCard() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: AppColors.primaryLight.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.primaryLight.withOpacity(0.2)),
+      ),
+      child: Row(
+        children: [
+          const Icon(
+            Icons.verified_user_rounded,
+            color: AppColors.primaryLight,
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Partner Benefit',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.primaryLight,
+                  ),
+                ),
+                Text(
+                  widget.bank.installmentsBenefit,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF2C3E50),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

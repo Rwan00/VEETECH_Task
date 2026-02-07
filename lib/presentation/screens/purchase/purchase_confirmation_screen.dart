@@ -64,7 +64,7 @@ class PurchaseConfirmationScreen extends StatelessWidget {
                     FadeInUp(
                       delay: const Duration(milliseconds: 200),
                       child: const Text(
-                        'Purchase Successful!',
+                        'Reservation Successful!',
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.w900,
@@ -222,6 +222,11 @@ class PurchaseConfirmationScreen extends StatelessWidget {
                                 'Period',
                                 '$installmentMonths Months',
                               ),
+                              _buildSummaryRow(
+                                'Financing Benefit',
+                                bank!.installmentsBenefit,
+                                valueColor: AppColors.primary,
+                              ),
                             ],
                             const Padding(
                               padding: EdgeInsets.symmetric(vertical: 12),
@@ -349,26 +354,37 @@ class PurchaseConfirmationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSummaryRow(String label, String value, {bool isTotal = false}) {
+  Widget _buildSummaryRow(
+    String label,
+    String value, {
+    bool isTotal = false,
+    Color? valueColor,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 14,
-              color: isTotal ? AppColors.primary : Colors.grey[600],
-              fontWeight: isTotal ? FontWeight.w900 : FontWeight.w500,
+          Expanded(
+            child: Text(
+              label,
+              style: TextStyle(
+                fontSize: 14,
+                color: isTotal ? AppColors.primary : Colors.grey[600],
+                fontWeight: isTotal ? FontWeight.w900 : FontWeight.w500,
+              ),
             ),
           ),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: isTotal ? 18 : 14,
-              fontWeight: isTotal ? FontWeight.w900 : FontWeight.bold,
-              color: const Color(0xFF2C3E50),
+          const SizedBox(width: 8),
+          Flexible(
+            child: Text(
+              value,
+              style: TextStyle(
+                fontSize: isTotal ? 18 : 14,
+                fontWeight: isTotal ? FontWeight.w900 : FontWeight.bold,
+                color: valueColor ?? const Color(0xFF2C3E50),
+              ),
+              textAlign: TextAlign.right,
             ),
           ),
         ],

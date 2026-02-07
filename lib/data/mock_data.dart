@@ -2,6 +2,30 @@ import 'package:task_veetech/data/models/bank_model.dart';
 import 'package:task_veetech/data/models/car_model.dart';
 
 class MockData {
+  static Map<String, String> getBrandLogos() {
+    return {
+      'BMW': 'https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg.png',
+      'Mercedes-Benz':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/1024px-Mercedes-Logo.svg.png',
+      'Audi':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/1200px-Audi-Logo_2016.svg.png',
+      'Toyota':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Toyota_logo_and_wordmark.svg/1200px-Toyota_logo_and_wordmark.svg.png',
+      'Porsche':
+          'https://upload.wikimedia.org/wikipedia/de/thumb/b/b3/Porsche_Wappen.svg/1200px-Porsche_Wappen.svg.png',
+      'Tesla':
+          'https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png',
+      'Honda':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/1200px-Honda_Logo.svg.png',
+      'Land Rover':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Land_Rover_logo.svg/1200px-Land_Rover_logo.svg.png',
+      'Fiat':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Fiat_logo.svg/1200px-Fiat_logo.svg.png',
+      'Maruti':
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Maruti_Suzuki_logo.svg/1200px-Maruti_Suzuki_logo.svg.png',
+    };
+  }
+
   static List<Car> getCars() {
     return [
       const Car(
@@ -9,8 +33,9 @@ class MockData {
         name: 'BMW 5 Series',
         brand: 'BMW',
         model: '530i',
+        modelCode: 'G30-2024',
         year: 2024,
-        price: 850000,
+        price: 3850000,
         imageUrl:
             'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800',
         type: 'new',
@@ -26,14 +51,16 @@ class MockData {
           'Cruise Control',
           'Heated Seats',
         ],
+        specialFinancingOffer: '0% Interest for 12 months',
       ),
       const Car(
         id: '2',
         name: 'Mercedes-Benz C-Class',
         brand: 'Mercedes-Benz',
         model: 'C300',
+        modelCode: 'W206-2023',
         year: 2023,
-        price: 780000,
+        price: 3780000,
         imageUrl:
             'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800',
         type: 'new',
@@ -49,14 +76,16 @@ class MockData {
           'Apple CarPlay',
           'Blind Spot Monitor',
         ],
+        specialFinancingOffer: '50% Off Admin Fees',
       ),
       const Car(
         id: '3',
         name: 'Audi A4',
         brand: 'Audi',
         model: 'A4 Premium',
+        modelCode: 'B9-2022',
         year: 2022,
-        price: 120000,
+        price: 2120000,
         imageUrl:
             'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800',
         type: 'used',
@@ -77,8 +106,9 @@ class MockData {
         name: 'Toyota Camry',
         brand: 'Toyota',
         model: 'Camry SE',
+        modelCode: 'XV70-2024',
         year: 2024,
-        price: 90000,
+        price: 1590000,
         imageUrl:
             'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800',
         type: 'new',
@@ -93,14 +123,16 @@ class MockData {
           'JBL Audio',
           'Panoramic View',
         ],
+        specialFinancingOffer: 'Free Insurance for 1st Year',
       ),
       const Car(
         id: '5',
         name: 'Honda Accord',
         brand: 'Honda',
         model: 'Accord Sport',
+        modelCode: 'CV-2023',
         year: 2023,
-        price: 18000,
+        price: 1850000,
         imageUrl:
             'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800',
         type: 'new',
@@ -121,8 +153,9 @@ class MockData {
         name: 'Tesla Model 3',
         brand: 'Tesla',
         model: 'Model 3 Long Range',
+        modelCode: 'TM3-2023',
         year: 2023,
-        price: 24000,
+        price: 2450000,
         imageUrl:
             'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800',
         type: 'used',
@@ -143,8 +176,9 @@ class MockData {
         name: 'Porsche Cayenne',
         brand: 'Porsche',
         model: 'Cayenne S',
+        modelCode: '9YA-2024',
         year: 2024,
-        price: 1450000,
+        price: 7450000,
         imageUrl:
             'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800',
         type: 'new',
@@ -166,8 +200,9 @@ class MockData {
         name: 'Range Rover Sport',
         brand: 'Land Rover',
         model: 'Sport HSE',
+        modelCode: 'L461-2023',
         year: 2023,
-        price: 1280000,
+        price: 6280000,
         imageUrl:
             'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=800',
         type: 'new',
@@ -183,6 +218,97 @@ class MockData {
           'Head-Up Display',
         ],
       ),
+      const Car(
+        id: '9',
+        name: 'BMW X5',
+        brand: 'BMW',
+        model: 'xDrive40i',
+        modelCode: 'G05-2024',
+        year: 2024,
+        price: 5200000,
+        imageUrl:
+            'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
+        type: 'new',
+        mileage: 0,
+        transmission: 'Automatic',
+        fuelType: 'Petrol',
+        color: 'Blue',
+        features: [
+          'xDrive AWD',
+          'Laser Lights',
+          '360 Camera',
+          'Soft Close Doors',
+        ],
+        specialFinancingOffer: '0% Interest for 24 months',
+      ),
+      const Car(
+        id: '10',
+        name: 'Mercedes-Benz E-Class',
+        brand: 'Mercedes-Benz',
+        model: 'E200',
+        modelCode: 'W213-2022',
+        year: 2022,
+        price: 2850000,
+        imageUrl:
+            'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800',
+        type: 'used',
+        mileage: 12000,
+        transmission: 'Automatic',
+        fuelType: 'Petrol',
+        color: 'Silver',
+        features: ['Widescreen Cockpit', 'Ambient Lighting', 'Parking Package'],
+      ),
+      const Car(
+        id: '11',
+        name: 'Fiat 128',
+        brand: 'Fiat',
+        model: 'Classic',
+        modelCode: 'F128-1990',
+        year: 1990,
+        price: 25000,
+        imageUrl:
+            'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800',
+        type: 'used',
+        mileage: 250000,
+        transmission: 'Manual',
+        fuelType: 'Petrol',
+        color: 'Orange',
+        features: ['Classic Style', 'Compact Size', 'Easy Maintenance'],
+      ),
+      const Car(
+        id: '12',
+        name: 'Maruti 800',
+        brand: 'Maruti',
+        model: 'Base',
+        modelCode: 'M800-2005',
+        year: 2005,
+        price: 28500,
+        imageUrl:
+            'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800',
+        type: 'used',
+        mileage: 120000,
+        transmission: 'Manual',
+        fuelType: 'Petrol',
+        color: 'White',
+        features: ['Fuel Efficient', 'City Friendly'],
+      ),
+      const Car(
+        id: '13',
+        name: 'Fiat Shahin',
+        brand: 'Fiat',
+        model: 'S1600',
+        modelCode: 'SH-2002',
+        year: 2002,
+        price: 29900,
+        imageUrl:
+            'https://images.unsplash.com/photo-1590362891991-f776e747a588?w=800',
+        type: 'used',
+        mileage: 180000,
+        transmission: 'Manual',
+        fuelType: 'Petrol',
+        color: 'Navy Blue',
+        features: ['Reliable Engine', 'Spacious Trunk'],
+      ),
     ];
   }
 
@@ -193,40 +319,55 @@ class MockData {
         name: 'National Bank of Egypt',
         logoUrl: '🏦',
         interestRate: 12.5,
-        maxInstallmentMonths: 60,
+        maxInstallmentMonths: 84,
         minDownPaymentPercentage: 20,
+        adminFeePercentage: 1.5,
+        insuranceIncluded: true,
+        installmentsBenefit: 'No interest for the first 6 months',
       ),
       const Bank(
         id: '2',
         name: 'Banque Misr',
         logoUrl: '🏦',
         interestRate: 11.8,
-        maxInstallmentMonths: 48,
+        maxInstallmentMonths: 72,
         minDownPaymentPercentage: 15,
+        adminFeePercentage: 2.0,
+        insuranceIncluded: false,
+        installmentsBenefit: 'Free license fees for new cars',
       ),
       const Bank(
         id: '3',
         name: 'CIB - Commercial International Bank',
         logoUrl: '🏦',
         interestRate: 13.2,
-        maxInstallmentMonths: 60,
+        maxInstallmentMonths: 96,
         minDownPaymentPercentage: 25,
+        adminFeePercentage: 1.0,
+        insuranceIncluded: true,
+        installmentsBenefit: 'Double reward points on fuel',
       ),
       const Bank(
         id: '4',
         name: 'QNB Alahli',
         logoUrl: '🏦',
         interestRate: 12.0,
-        maxInstallmentMonths: 48,
+        maxInstallmentMonths: 60,
         minDownPaymentPercentage: 20,
+        adminFeePercentage: 1.25,
+        insuranceIncluded: true,
+        installmentsBenefit: '0% interest on selected models',
       ),
       const Bank(
         id: '5',
         name: 'Bank of Alexandria',
         logoUrl: '🏦',
         interestRate: 11.5,
-        maxInstallmentMonths: 36,
+        maxInstallmentMonths: 48,
         minDownPaymentPercentage: 30,
+        adminFeePercentage: 0.5,
+        insuranceIncluded: false,
+        installmentsBenefit: 'Direct cash back on first installment',
       ),
     ];
   }

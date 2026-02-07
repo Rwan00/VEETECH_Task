@@ -183,6 +183,46 @@ class CarDetailsScreen extends StatelessWidget {
             color: AppColors.primary,
           ),
         ),
+        if (car.specialFinancingOffer != null) ...[
+          const SizedBox(height: 16),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: AppColors.accent.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: AppColors.accent.withOpacity(0.3)),
+            ),
+            child: Row(
+              children: [
+                const Icon(Icons.stars_rounded, color: AppColors.accent),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Exclusive Offer',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.accent,
+                        ),
+                      ),
+                      Text(
+                        car.specialFinancingOffer!,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF2C3E50),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ],
     );
   }
@@ -416,7 +456,7 @@ class CarDetailsScreen extends StatelessWidget {
                   elevation: 0,
                 ),
                 child: const Text(
-                  'Reserve Now',
+                  'Start Reservation',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

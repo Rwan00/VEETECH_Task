@@ -5,6 +5,7 @@ class Car extends Equatable {
   final String name;
   final String brand;
   final String model;
+  final String modelCode;
   final int year;
   final double price;
   final String imageUrl;
@@ -14,12 +15,14 @@ class Car extends Equatable {
   final String fuelType;
   final String color;
   final List<String> features;
+  final String? specialFinancingOffer;
 
   const Car({
     required this.id,
     required this.name,
     required this.brand,
     required this.model,
+    required this.modelCode,
     required this.year,
     required this.price,
     required this.imageUrl,
@@ -29,22 +32,25 @@ class Car extends Equatable {
     required this.fuelType,
     required this.color,
     required this.features,
+    this.specialFinancingOffer,
   });
 
   @override
   List<Object?> get props => [
-        id,
-        name,
-        brand,
-        model,
-        year,
-        price,
-        imageUrl,
-        type,
-        mileage,
-        transmission,
-        fuelType,
-        color,
-        features,
-      ];
+    id,
+    name,
+    brand,
+    model,
+    modelCode,
+    year,
+    price,
+    imageUrl,
+    type,
+    mileage,
+    transmission,
+    fuelType,
+    color,
+    features,
+    specialFinancingOffer,
+  ];
 }
